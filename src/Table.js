@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import './Table.css'; 
 import CurrencyFormat from 'react-currency-format';
+import { render } from 'react-dom';
 
 function Table(props) {
-    const displayArray = props.items; 
+    const [refresh, setRefresh] = useState(false); 
+    const [displayArray, setDisplayArray] = useState(props.items); 
+    //var displayArray = props.items; 
 
 
 
@@ -47,10 +50,21 @@ function Table(props) {
 
     const tableSort = (n) => {
        // alert("Sorting Column: "+n); 
-       var tempArray = displayArray.map((tableColumn)=>tableColumn[n]);
-       tempArray.sort((a,b)=>a-b); //sort compare
-       alert(tempArray);
-       alert(tempArray.reverse()); 
+      // var tempArray = displayArray.map((tableColumn)=>tableColumn[n]);
+       //tempArray.sort((a,b)=>a-b); //sort compare
+       //alert(tempArray);
+       //alert(tempArray.reverse()); 
+       setDisplayArray(displayArray.sort((a,b) => a[n]-b[n])); 
+      // displayArray.map(renderRows)
+       console.log(displayArray); 
+       
+       
+       setRefresh(true); 
+       setRefresh(false); 
+       //alert(displayArray[n]); 
+       //var newList = tempArray.map((item)=>displayArray.filter(n)==item);
+       //alert(displayArray[0].description); 
+       //alert(displayArray.filter((item)=>item[n]==tempArray[0]).description); 
     }
 
 
