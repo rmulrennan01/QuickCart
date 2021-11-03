@@ -1,0 +1,59 @@
+.tableHeader{
+    display: flex; 
+    flex-direction: row;
+    font: arial; 
+    font-weight: 2px;
+    color: black; 
+    background-color: lightblue;
+    transition-duration: 0.4s; /* for hover*/ 
+    width: 50%; 
+    
+
+}
+
+.tableHeader__desc{
+    border-style: solid; 
+    border-color: grey; 
+    border-width:1px; 
+    width:20%;  
+
+}
+
+.tableHeader__qty{
+    border-style: solid; 
+    border-color: grey; 
+    border-width:1px; 
+    width:20%;    
+    left: 20%; 
+
+}
+
+.tableHeader__price{
+    border-style: solid; 
+    border-color: grey; 
+    border-width:1px; 
+    width:20%;    
+    left: 40%; 
+
+}
+
+.tableHeader__subtotal{
+    border-style: solid; 
+    border-color: grey; 
+    border-width:1px; 
+    width:20%;    
+    left: 60%; 
+
+}
+
+.tableHeader__remove{
+    border-style: solid; 
+    border-color: grey; 
+    border-width:1px; 
+    width:20%;    
+    left: 80%; 
+
+}
+
+
+

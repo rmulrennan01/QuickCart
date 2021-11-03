@@ -1,0 +1,70 @@
+.lineItem__row{
+    display: flex; 
+    flex-direction: row;
+    
+    color: black; 
+    background-color: white;
+    transition-duration: 0.4s; /* for hover*/ 
+    width: 50%; 
+    
+
+}
+
+.lineItem__row:hover{
+    color:white; 
+    background-color: rgb(202, 202, 206);
+}
+
+.lineItem__desc{
+ 
+    border-style: solid; 
+    border-color: grey; 
+    border-width:1px; 
+   
+    width:20%;  
+    
+}
+
+.lineItem__qty{
+ 
+    border-style: solid; 
+    border-color: grey; 
+    border-width:1px; 
+    
+    width:20%;    
+    left: 20%; 
+}
+
+
+.lineItem__unit_price{
+  
+    border-style: solid; 
+    border-color: grey; 
+    border-width:1px; 
+   
+    width:20%;    
+    left: 40%;
+    
+}
+
+
+.lineItem__rm{
+
+    border-style: solid; 
+    border-color: grey; 
+    border-width:1px; 
+ 
+    width:20%;    
+    left: 60%; 
+}
+
+
+.lineItem__subtotal{
+
+    border-style: solid; 
+    border-color: grey; 
+    border-width:1px; 
+   
+    width:20%;    
+    left: 80%; 
+}

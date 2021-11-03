@@ -1,0 +1,27 @@
+.table__header{
+
+    font: arial; 
+    font-weight: 2px;
+    color: black; 
+    background-color: lightblue;
+    transition-duration: 0.4s; /* for hover*/ 
+}
+
+.table__header:hover{
+    color:white; 
+    background-color: rgb(202, 202, 206);
+}
+
+.table__row{
+    font: arial; 
+    font-weight: 2px;
+    color: black; 
+    text-align: center;
+    transition-duration: 0.4s; /* for hover*/ 
+
+}
+
+.table__row:hover{
+    color: black; 
+    background-color: rgb(202, 202, 206);
+}
