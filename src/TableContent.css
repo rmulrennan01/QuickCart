@@ -1,0 +1,13 @@
+.tableContent__row{
+    font: arial; 
+    font-weight: 2px;
+    color: black; 
+    text-align: center;
+    transition-duration: 0.4s; /* for hover*/ 
+
+}
+
+.tableContent__row:hover{
+    color: black; 
+    background-color: rgb(202, 202, 206);
+}
