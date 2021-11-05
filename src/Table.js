@@ -16,11 +16,19 @@ function Table(props) {
     const tableSort = (n) => {
         const tempList = displayArray; 
        tempList.sort((a,b) => a[n]-b[n]); 
-  
-       setDisplayArray(tempList); 
-       console.log(displayArray); 
+        if(ascendSort ==true){
+            setDisplayArray(tempList); 
+            setAscendSort(false); 
+        }
+        else{
+            tempList.reverse(); 
+            setDisplayArray(tempList);
+            setAscendSort(true); 
+            
+        } 
+       //console.log(displayArray); 
       // alert(n); 
-       toggleSortOrder(); 
+      
     }
 
 
@@ -28,16 +36,14 @@ function Table(props) {
         setSortColumn(sortColumn*1); 
     }
 
-    const toggleSortOrder = () => {
-        setAscendSort(ascendSort*-1);  
-    }
+  
 
 
 
     return (
         <div>
             <table>
-                <TableHead tableSort={tableSort} toggle={toggleSortOrder}/>                 
+                <TableHead tableSort={tableSort} />                 
                 <TableContent content={displayArray}/> 
                 
                 <tr>

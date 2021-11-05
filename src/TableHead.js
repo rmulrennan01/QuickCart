@@ -4,9 +4,6 @@ function TableHead(props) {
 
     const update = (n) => {
         props.tableSort(n); 
-        props.toggle(); 
-
-
     }
 
     
