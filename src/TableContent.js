@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import "./TableHeader.css"; 
+import "./TableContent.css"; 
 import CurrencyFormat from 'react-currency-format';
 
 
@@ -7,13 +7,11 @@ function TableContent(props) {
     //const [displayList, setDisplayList] = useState(props.content); 
    // const displayList = props.content; 
 
-    const removeItem = () => {
-        alert("Item Removed from Table"); 
-    }
+
     
     const renderRows = (item) => {
         return(
-            <tr key={item.productID}>
+            <tr key={item.productID} className= "tableContent__row">
                 <td>{item.productID}</td>
                 <td>{item.description}</td>
                 <td>{item.quantity}</td> 
@@ -26,7 +24,7 @@ function TableContent(props) {
                     <CurrencyFormat value={item.subtotal} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/>
                 </td> 
                 <td> 
-                    <button onClick={removeItem}> Remove </button> 
+                    <button onClick={() => removeRow(item)}> Remove </button> 
                 </td>  
     
             </tr> 
@@ -35,11 +33,19 @@ function TableContent(props) {
 
     }
 
+    const removeRow = (n) => {
+        props.removeItem(props.content.indexOf(n));
+    }
+
 
 
     return (
         
-        <> {props.content.map(renderRows)} {props.content.map(props.updateSubtotal)} </> 
+        <> 
+            {props.content.map(renderRows)} 
+            {props.content.map(props.updateSubtotal)} 
+            {props.updateTotal()} 
+        </> 
         
        
     );
