@@ -16,6 +16,7 @@ function Table(props) {
     const tableSort = (n) => {
         const tempList = displayArray; 
        tempList.sort((a,b) => a[n]-b[n]); 
+       setDisplayArray(displayArray.map(updateSubtotal)); 
         if(ascendSort ==true){
             setDisplayArray(tempList); 
             setAscendSort(false); 
@@ -24,27 +25,23 @@ function Table(props) {
             tempList.reverse(); 
             setDisplayArray(tempList);
             setAscendSort(true); 
-            
         } 
-       //console.log(displayArray); 
-      // alert(n); 
-      
+        
+    }
+
+    const updateSubtotal = (n) => {
+        n.subtotal = n.quantity*n.unit_price; 
     }
 
 
-    const sortSwitch = () => {
-        setSortColumn(sortColumn*1); 
-    }
-
-  
 
 
 
     return (
         <div>
             <table>
-                <TableHead tableSort={tableSort} />                 
-                <TableContent content={displayArray}/> 
+                <TableHead content={displayArray} tableSort={tableSort}/>                 
+                <TableContent content={displayArray} updateSubtotal={updateSubtotal}/> 
                 
                 <tr>
                     <td> AUTO </td>

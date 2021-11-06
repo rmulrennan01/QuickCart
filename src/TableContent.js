@@ -13,7 +13,7 @@ function TableContent(props) {
     
     const renderRows = (item) => {
         return(
-            <tr>
+            <tr key={item.productID}>
                 <td>{item.productID}</td>
                 <td>{item.description}</td>
                 <td>{item.quantity}</td> 
@@ -23,7 +23,7 @@ function TableContent(props) {
                     
                 </td> 
                 <td> 
-                    <CurrencyFormat value={item.quantity*item.unit_price} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/>
+                    <CurrencyFormat value={item.subtotal} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/>
                 </td> 
                 <td> 
                     <button onClick={removeItem}> Remove </button> 
@@ -39,7 +39,7 @@ function TableContent(props) {
 
     return (
         
-        <> {props.content.map(renderRows)} </> 
+        <> {props.content.map(renderRows)} {props.content.map(props.updateSubtotal)} </> 
         
        
     );
