@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 
 
 import Table from './Table.js'; 
 
+import Modal from './Modal.js'; 
+
 function Home() {
+  const [modalVisible, setModalVisible] = useState(false); 
+  const [refresh, setRefresh] = useState(false); 
+
+
+
+
+
   const tableData = [
     {productID: "123564", description: "HOT DIPPED GALVANIZED NAILS - 2,000 COUNT", quantity: "12", unit_price: "13.00", unit_measure: "BX", subtotal:"0"},
     {productID: "235444", description: "GAF TIMBERLINE HDZ - 3 BUNDLES", quantity: "560", unit_price: "96.23", unit_measure: "SQ", subtotal:"0"},
@@ -15,6 +24,12 @@ function Home() {
     {productID: "017746", description: "GAF STARTER", quantity: "15", unit_price: "68.00", unit_measure: "BUNDLES", subtotal:"0"}
   ]
 
+  const activateModal = () => {
+    setModalVisible(!modalVisible); 
+    //setRefresh(!refresh); 
+    //alert(modalVisible); 
+  }
+
 
 
   
@@ -24,6 +39,8 @@ function Home() {
       <br/> 
       <br/> 
       <Table items={tableData} /> 
+      <button onClick={()=> activateModal()}> Add Item </button> 
+      <Modal visibility={modalVisible} close={activateModal}/> 
 
     </div>
   ); 
