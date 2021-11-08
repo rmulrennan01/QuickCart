@@ -17,6 +17,9 @@ function Modal(props) {
         updateFormData("subtotal",subtotal); 
         props.addItem(formSubmission); //TODO
         setFormSubmission([{}]); 
+        setSubtotal(0); 
+        props.close(); 
+
     }
 
     const updateFormData = (a,b) => {
