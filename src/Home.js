@@ -43,9 +43,27 @@ function Home() {
     const db = firebase.firestore(); 
     db.settings({timestampsInSnapshots:true}); 
     const data = db.collection("products"); 
-    const info = data.get(); 
-    console.log(info); 
+    const info = data.doc('R35Pkr3HIQyCUGpfpExj').get(); 
+    //const info = data.doc('R35Pkr3HIQyCUGpfpExj').value(); 
+    
+    db.collection("products").add({
+      description: "new item",
+      material: true, 
+      product_ID: 1, 
+      taxed: true,
+      unit_measure: "pieces",
+      unit_price: 44.00 
+    })
+    .then((docRef) => {
+      alert("Data Successfully Submitted");
+    })
+    .catch((error) => {
+      console.error("Error adding document: ", error);
+    });
   }
+
+    
+  
 
 
 
