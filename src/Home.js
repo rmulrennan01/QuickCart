@@ -5,7 +5,11 @@ import Table from './Table.js';
 
 import Modal from './Modal.js'; 
 
+import firebase from "./Firebase.js"; 
+//import firestore from "./firestore"; 
+
 function Home() {
+  
   const [modalVisible, setModalVisible] = useState(false); 
   const [refresh, setRefresh] = useState(false); 
   const [tableData, setTableData] = useState([
@@ -35,6 +39,14 @@ function Home() {
 
   }
 
+  const firebaseItem = () =>{
+    const db = firebase.firestore(); 
+    db.settings({timestampsInSnapshots:true}); 
+    const data = db.collection("products"); 
+    const info = data.get(); 
+    console.log(info); 
+  }
+
 
 
   
@@ -47,6 +59,7 @@ function Home() {
       <button onClick={()=> activateModal()}> Add Item </button> 
       <Modal visibility={modalVisible} close={activateModal} addItem={addItem}/> 
 
+      <button onClick={()=>firebaseItem()}> Firebase </button> 
     </div>
   ); 
 }
