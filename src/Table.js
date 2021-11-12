@@ -54,12 +54,14 @@ function Table(props) {
     return (
         <div>
             <table>
-                <TableHead content={displayArray} tableSort={tableSort}/>                 
+                <TableHead content={displayArray} tableSort={tableSort} headerLabels={props.tableColumns}/>                 
                 <TableContent 
                     content={displayArray} 
                     updateSubtotal={updateSubtotal} 
                     updateTotal={updateTotal}
                     removeItem={removeItem}
+                    tableColumns={props.tableColumns}
+
                 /> 
 
                 <TableFoot subtotal={runningSubtotal}/> 
