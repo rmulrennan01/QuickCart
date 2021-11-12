@@ -32,6 +32,17 @@ function Home() {
         {ref_key:"subtotal", displayName:"Subtotal ($)"}
         ]); 
 
+  const [databaseHeader, setDatabaseHeader] = useState(
+        [{ref_key:"description", displayName:"Description"},
+        {ref_key:"material", displayName:"Material (T/F)"},
+        {ref_key:"product_ID", displayName:"Product ID"},
+        {ref_key:"taxed", displayName:"Taxable"},
+        {ref_key:"unit_measure", displayName:"Unit Measure"},
+        {ref_key:"unit_price", displayName:"Unit Price ($)"}
+      ]);
+      
+  const [loading, setLoading] =useState(true); 
+      
   const activateModal = () => {
     setModalVisible(!modalVisible); 
     //setRefresh(!refresh); 
@@ -52,10 +63,11 @@ function Home() {
     const fetchData = async () =>{
       const db = firebase.firestore(); 
       const data = await db.collection("products").get(); 
+
       setDatabase(data.docs.map(doc=> doc.data()))
+      setLoading(false); 
     }
     fetchData(); 
-    //console.log(database); 
     }, []);
 
 
@@ -90,9 +102,26 @@ function Home() {
 */ 
     
   const load = () => {
-    console.log(database.toString); 
-    console.log("Tested"); 
+
     alert(database[0].unit_price); 
+    alert(tableData[0].unit_price); 
+  }
+
+  const visableTable = () => {
+    if (loading){
+      return (
+        <>Loading...</>
+      ); 
+    }
+    else{
+      return(
+        <Table
+        items={database}
+        tableColumns={databaseHeader}
+        /> 
+
+      );
+    }
   }
 
   
@@ -103,7 +132,6 @@ function Home() {
       <br/> 
       <Table 
         items={tableData} 
-        displayModal={()=>activateModal()}
         tableColumns={tableHeader}
       /> 
       <button onClick={()=> activateModal()}> Add Item </button> 
@@ -112,6 +140,14 @@ function Home() {
       <button onClick={()=>load()}> Firebase </button>      
       <br/> 
       <br/> 
+
+      {visableTable()}
+
+
+    {}
+
+   
+  
      
 
     </div>

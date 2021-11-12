@@ -45,7 +45,7 @@ function TableContent(props) {
                     
                     <td>
                         {item[cell.ref_key]}
-                        {console.log(cell)}
+                      
                     </td> 
 
                 )}
