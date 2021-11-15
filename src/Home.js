@@ -10,6 +10,7 @@ import firebase from "./Firebase.js";
 
 function Home() {
   
+  const [firestoreDB, setFirestoreDB] = useState(firebase.firestore()); 
   const [modalVisible, setModalVisible] = useState(false); 
   const [refresh, setRefresh] = useState(false); 
   const [database, setDatabase] = React.useState([]); 
@@ -56,40 +57,35 @@ function Home() {
     setTableData(tempData); 
     setRefresh(!refresh);
     //console.log(tempData); 
+    addFirebase(n, "products"); 
 
   }
   
   React.useEffect( () => {
     const fetchData = async () =>{
-      const db = firebase.firestore(); 
-      const data = await db.collection("products").get(); 
-
+       const data = await firestoreDB.collection("products").get(); 
       setDatabase(data.docs.map(doc=> doc.data()))
       setLoading(false); 
     }
     fetchData(); 
     }, []);
 
-
-    
-
-
-    /*
-  const firebaseItem = () =>{
-    const db = firebase.firestore(); 
-    db.settings({timestampsInSnapshots:true}); 
-    const data = db.collection("products"); 
-    const info = data.doc('R35Pkr3HIQyCUGpfpExj').get("unit_price"); 
+   
+  const addFirebase = (n, collectionID) =>{
+    //const db1 = firebase.firestore(); 
+    //firestoreDB.settings({timestampsInSnapshots:true}); 
+    //const data = db.collection("products"); 
+    //const info = data.doc('R35Pkr3HIQyCUGpfpExj').get("unit_price"); 
 
     //const info = data.doc('R35Pkr3HIQyCUGpfpExj').value(); 
-     console.log("here"+info); 
-    db.collection("products").add({
-      description: "new item",
+    // console.log("here"+info); 
+    firestoreDB.collection(collectionID).add({
+      description: n.description,
       material: true, 
-      product_ID: 1, 
+      product_ID: n.productID, 
       taxed: true,
-      unit_measure: "pieces",
-      unit_price: 44.00 
+      unit_measure: n.unit_measure,
+      unit_price: n.unit_price 
     })
     .then((docRef) => {
       alert("Data Successfully Submitted");
@@ -99,7 +95,7 @@ function Home() {
     });
     
   }
-*/ 
+
     
   const load = () => {
 
