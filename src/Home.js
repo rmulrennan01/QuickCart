@@ -130,6 +130,7 @@ function Home() {
       <br/> 
       <br/> 
       <Dropdown selector="name_last" list={clientList} />
+      <Dropdown selector="name_first" list={clientList}/> 
       <br/> 
       <Table 
         items={tableData} 

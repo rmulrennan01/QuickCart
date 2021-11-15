@@ -8,39 +8,11 @@ function TableContent(props) {
    // const displayList = props.content; 
  
     
-    
-    /*
-    const renderRows = (item) => {
-        return(
-            <tr key={item.productID} className= "tableContent__row">
-                <td>{item.productID}</td>
-                <td>{item.description}</td>
-                <td>{item.quantity}</td> 
-                <td>{item.unit_measure}</td> 
-                <td>
-                    <CurrencyFormat value={item.unit_price} displayType={'text'} thousandSeparator={true} prefix={'$'} /> 
-                    
-                </td> 
-                <td> 
-                    <CurrencyFormat value={item.subtotal} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/>
-                </td> 
-                <td> 
-                    <button onClick={() => removeRow(item)}> Remove </button> 
-                </td>  
-    
-            </tr> 
-            
-        ); 
-
-    }
-
-    */ 
-
     const renderRows = (item) => {
         //const temp = Array.from(item); 
         //console.log("check"); 
         return(
-            <tr>
+            <tr className="tableContent__row">
                 {props.tableColumns.map((cell) =>
                     
                     <td>
