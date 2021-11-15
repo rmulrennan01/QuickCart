@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+import './TableHeader.css'; 
+
 function TableHead(props) {
     const [header, setHeader] = useState(props.headerLabels); 
 
@@ -12,7 +14,7 @@ function TableHead(props) {
     const renderHead = (col) => {        
         return(
             <>
-                <td className="table__header" onClick={()=> update(col.ref_key)}>{col.displayName}</td>
+                <td className="tableHeader" onClick={()=> update(col.ref_key)}>{col.displayName}</td>
             </>
         );  
     }
@@ -20,7 +22,7 @@ function TableHead(props) {
     return(
         <tr> 
             {header.map(renderHead)}
-            <th className="table__header"> (X) </th> 
+            <th className="tableHeader"> (X) </th> 
         </tr> 
     )
     

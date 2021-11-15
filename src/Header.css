@@ -3,6 +3,8 @@
     background-color:white;
     flex-wrap: wrap; 
     color: red; 
+    font-weight: bold; 
+    
     
 
 }
@@ -29,6 +31,7 @@
     color: rgb(202, 202, 206);
     border: none;
     font: arial; 
+    
     padding: 15px 15px;
     text-align: center;
     text-decoration: none;
