@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Table from './Table.js'; 
 
 import Modal from './Modal.js'; 
+import Dropdown from './Dropdown.js'; 
 
 import firebase from "./Firebase.js"; 
 //import firestore from "./firestore"; 
@@ -14,6 +15,7 @@ function Home() {
   const [modalVisible, setModalVisible] = useState(false); 
   const [refresh, setRefresh] = useState(false); 
   const [database, setDatabase] = React.useState([]); 
+  const [clientList, setClientList] = React.useState([]); 
   const [tableData, setTableData] = useState([
     {productID: "123564", description: "HOT DIPPED GALVANIZED NAILS - 2,000 COUNT", quantity: 12, unit_price: 13.00, unit_measure: "BX", subtotal: 0},
     {productID: "235444", description: "GAF TIMBERLINE HDZ - 3 BUNDLES", quantity: 560, unit_price: 96.23, unit_measure: "SQ", subtotal: 0},
@@ -63,8 +65,10 @@ function Home() {
   
   React.useEffect( () => {
     const fetchData = async () =>{
-       const data = await firestoreDB.collection("products").get(); 
-      setDatabase(data.docs.map(doc=> doc.data()))
+      const data = await firestoreDB.collection("products").get(); 
+      const dataClients = await firestoreDB.collection("clients").get(); //updated
+      setDatabase(data.docs.map(doc=> doc.data())); 
+      setClientList(dataClients.docs.map(doc=>doc.data())); 
       setLoading(false); 
     }
     fetchData(); 
@@ -125,6 +129,7 @@ function Home() {
     <div>
       <br/> 
       <br/> 
+      <Dropdown selector="name_last" list={clientList} />
       <br/> 
       <Table 
         items={tableData} 
