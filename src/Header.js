@@ -14,7 +14,7 @@ function Header() {
             <Link to="/">
                 <button className="header__btn"> Home </button> 
             </Link> 
-            <Link to="/"> 
+            <Link to="/Clients"> 
                 <button className="header__btn"> Client Directory </button>   
             </Link> 
             <Link to="/"> 

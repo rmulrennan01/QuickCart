@@ -4,18 +4,21 @@ import React, { useEffect, useState } from 'react';
 
     
     function TableFoot(props) {
+        const [footer, setFooter] = useState(props.columns); 
+        
+
+        const renderFoot = (item) => {
+            return(
+                
+                <td key={item.ref_key} className="table__header"> - </td> 
+                 
+            ); 
+        }
+
         return (
             <tr > 
-            <th className="table__header"> </th> 
-            <th className="table__header"> </th> 
-            <th className="table__header"> </th> 
-            <th className="table__header"> </th> 
-            <th className="table__header"> Subtotal:</th>       
-            <th className="table__header">   
-                <CurrencyFormat value={props.subtotal} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2}/>   
-            </th> 
-            <th className="table__header"> </th>       
-        </tr> 
+                {footer.map(renderFoot)}
+            </tr> 
         )
     }
     

@@ -61,10 +61,11 @@ function Table(props) {
                     updateTotal={updateTotal}
                     removeItem={removeItem}
                     tableColumns={props.tableColumns}
+                    
 
                 /> 
 
-                <TableFoot subtotal={runningSubtotal}/> 
+                <TableFoot subtotal={runningSubtotal} columns={props.tableColumns}/> 
                 
 
 

@@ -21,6 +21,9 @@ function TableContent(props) {
                     </td> 
 
                 )}
+            <td> 
+                <button> Edit </button>
+            </td> 
             <td>
                 <button onClick={() => removeRow(item)}>Remove</button>
             </td>

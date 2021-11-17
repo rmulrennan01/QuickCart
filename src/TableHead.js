@@ -22,7 +22,7 @@ function TableHead(props) {
     return(
         <tr> 
             {header.map(renderHead)}
-            <th className="tableHeader"> (X) </th> 
+
         </tr> 
     )
     

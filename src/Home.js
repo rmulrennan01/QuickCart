@@ -5,14 +5,16 @@ import Table from './Table.js';
 
 import Modal from './Modal.js'; 
 import Dropdown from './Dropdown.js'; 
-
+import Dropdown_Search from './Dropdown_Search.js'; 
 import firebase from "./Firebase.js"; 
-//import firestore from "./firestore"; 
+import Modal_Add_Product from "./Modal_Add_Product.js"; 
+
 
 function Home() {
   
   const [firestoreDB, setFirestoreDB] = useState(firebase.firestore()); 
   const [modalVisible, setModalVisible] = useState(false); 
+  const [modalVisible2, setModalVisible2] = useState(false); 
   const [refresh, setRefresh] = useState(false); 
   const [database, setDatabase] = React.useState([]); 
   const [clientList, setClientList] = React.useState([]); 
@@ -38,7 +40,6 @@ function Home() {
   const [databaseHeader, setDatabaseHeader] = useState(
         [{ref_key:"description", displayName:"Description"},
         {ref_key:"material", displayName:"Material (T/F)"},
-        {ref_key:"product_ID", displayName:"Product ID"},
         {ref_key:"taxed", displayName:"Taxable"},
         {ref_key:"unit_measure", displayName:"Unit Measure"},
         {ref_key:"unit_price", displayName:"Unit Price ($)"}
@@ -86,7 +87,7 @@ function Home() {
     firestoreDB.collection(collectionID).add({
       description: n.description,
       material: true, 
-      product_ID: n.productID, 
+      //product_ID: n.productID, 
       taxed: true,
       unit_measure: n.unit_measure,
       unit_price: n.unit_price 
@@ -99,6 +100,8 @@ function Home() {
     });
     
   }
+
+
 
     
   const load = () => {
@@ -129,8 +132,8 @@ function Home() {
     <div>
       <br/> 
       <br/> 
-      <Dropdown selector="name_last" list={clientList} />
-      <Dropdown selector="name_first" list={clientList}/> 
+      <Dropdown_Search selector="name_last" list={clientList} />
+      <Dropdown_Search selector="name_first" list={clientList}/> 
       <br/> 
       <Table 
         items={tableData} 
@@ -145,8 +148,10 @@ function Home() {
 
       {visableTable()}
 
+      <button onClick={()=> setModalVisible2(true)}> Add Product </button>
+      <Modal_Add_Product visibility={modalVisible2} close={()=> setModalVisible2(false)} addItem={addItem}/> 
 
-    {}
+    
 
    
   

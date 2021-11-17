@@ -10,6 +10,7 @@ import Header from './Header.js';
 import Footer from './Footer.js'; 
 import Carousel from './Carousel'; 
 import Login from './Login.js'; 
+import Clients from './Clients.js'; 
 
 
 function App() {
@@ -21,6 +22,9 @@ function App() {
           <Route exact path="/">
             <Home /> 
           </Route>
+          <Route path="/Clients"> 
+            <Clients /> 
+          </Route> 
           <Route path="/Landing"> 
             <Login /> 
           </Route> 
