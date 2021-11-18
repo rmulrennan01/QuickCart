@@ -22,7 +22,7 @@ function TableContent(props) {
 
                 )}
             <td> 
-                <button> Edit </button>
+                <button onClick={() => editRow(item)}> Edit </button>
             </td> 
             <td>
                 <button onClick={() => removeRow(item)}>Remove</button>
@@ -38,6 +38,10 @@ function TableContent(props) {
 
     const removeRow = (n) => {
         props.removeItem(props.content.indexOf(n));
+    }
+
+    const editRow = (n) => {
+        alert("Edit line item #: "+props.content.indexOf(n)); 
     }
 
 

@@ -40,6 +40,7 @@ function Modal_Add_Product(props) {
                 <div className="modal__body"> 
                     <form >
                         <label> 
+                           
                             Description: <input type="text" required onChange={e=>updateFormData("description",e.target.value)}/>
                         </label> <br/> 
                         <label> 

@@ -147,7 +147,7 @@ function Home() {
       <br/> 
 
       {visableTable()}
-
+      <br/> 
       <button onClick={()=> setModalVisible2(true)}> Add Product </button>
       <Modal_Add_Product visibility={modalVisible2} close={()=> setModalVisible2(false)} addItem={addItem}/> 
 

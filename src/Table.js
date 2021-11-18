@@ -49,6 +49,10 @@ function Table(props) {
 
     }
 
+    const editItem = () => {
+        alert("Edit this item");
+    }
+
 
 
     return (
