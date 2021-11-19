@@ -144,6 +144,7 @@ function Clients() {
 
     return (
         <div>
+            {console.log(list[0])}
             <Modal_Template
                 modalVisible={modalVisible}
                 modalTitle= {tempTitle}

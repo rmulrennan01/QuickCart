@@ -18,7 +18,15 @@ function Table(props) {
 
     const tableSort = (n) => {
         const tempList = displayArray; 
-       tempList.sort((a,b) => a[n]-b[n]); 
+        const tempItem = tempList[0]; 
+        if(typeof tempItem[n] === 'number'){
+            tempList.sort((a,b) => a[n]-b[n]); 
+        }
+        else{
+            //TODO - CATCH ERROR IF NO ITEMS ARE IN THE TABLE
+            tempList.sort((a,b) => (a[n]).localeCompare(b[n])); 
+        }
+       
        setDisplayArray(displayArray.map(updateSubtotal)); 
         if(ascendSort ==true){
             setDisplayArray(tempList); 
@@ -45,7 +53,7 @@ function Table(props) {
         const tempList = displayArray;
         tempList.splice(n,1); 
         setDisplayArray(tempList); 
-        setRefresh(!refresh); //only way to get dom to re-render by adding this prop alteration
+        setRefresh(!refresh); //only way to get dom to re-render by adding this prop alteration for some reason
 
     }
 
