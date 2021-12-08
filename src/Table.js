@@ -19,13 +19,13 @@ function Table(props) {
     const tableSort = (n) => {
         const tempList = displayArray; 
         const tempItem = tempList[0]; 
-        if(typeof tempItem[n] === 'number'){
+        //if(typeof tempItem[n] === 'number'){
             tempList.sort((a,b) => a[n]-b[n]); 
-        }
-        else{
+        //}
+        //else{
             //TODO - CATCH ERROR IF NO ITEMS ARE IN THE TABLE
-            tempList.sort((a,b) => (a[n]).localeCompare(b[n])); 
-        }
+         //   tempList.sort((a,b) => (a[n]).localeCompare(b[n])); 
+        //}
        
        setDisplayArray(displayArray.map(updateSubtotal)); 
         if(ascendSort ==true){
@@ -64,10 +64,11 @@ function Table(props) {
 
 
     return (
-        <div>
+        <div className="table">
             <table>
                 <TableHead content={displayArray} tableSort={tableSort} headerLabels={props.tableColumns}/>                 
                 <TableContent 
+                    
                     content={displayArray} 
                     updateSubtotal={updateSubtotal} 
                     updateTotal={updateTotal}

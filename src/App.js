@@ -11,31 +11,42 @@ import Footer from './Footer.js';
 import Carousel from './Carousel'; 
 import Login from './Login.js'; 
 import Clients from './Clients.js'; 
+import Toolbar from './Toolbar.js'; 
 
 
 function App() {
   return(    
+    
+
   <Router> 
+    
     <div> 
-    <Header /> 
-      <Switch>
-          <Route exact path="/">
-            <Home /> 
-          </Route>
-          <Route path="/Clients"> 
-            <Clients /> 
-          </Route> 
-          <Route path="/Landing"> 
-            <Login /> 
-          </Route> 
-          <Route path="/About">
-            <About /> 
-          </Route>
-      </Switch>
+      <Header /> 
+    </div> 
+    <div className="app__middle"> 
+      <div className="app__toolbar"> 
+        <Toolbar /> 
+      </div> 
+      <div className="app__body"> 
+        <Switch>
+            <Route exact path="/">
+              <Home /> 
+            </Route>
+            <Route path="/Clients"> 
+              <Clients /> 
+            </Route> 
+            <Route path="/Landing"> 
+              <Login /> 
+            </Route> 
+            <Route path="/About">
+              <About /> 
+            </Route>
+        </Switch>
+      </div>
+    </div>  
       <br/> 
       <br/>       <br/> 
-      <br/>       <br/> 
-      <br/> 
+      <br/>       
       <div> 
         <Carousel /> 
       </div>
@@ -45,8 +56,10 @@ function App() {
       <div> 
         <Footer /> 
       </div> 
-    </div> 
+      
+     
   </Router>
+  
   ); 
 }
 

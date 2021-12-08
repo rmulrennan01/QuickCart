@@ -1,0 +1,32 @@
+.toolbar{
+   /* height: 15px; 
+    width: 15%; */  
+    background-color: #0076C8;
+    left: 0px; 
+    height: 100%; 
+    color: white;
+
+    
+
+}
+
+.toolbar__body{
+   
+    /*width: 15%; */  
+    background-color: #0076C8;
+    left: 0px; 
+    color: white; 
+
+    
+
+}
+
+.toolbar__footer{
+   
+    /*width: 15%; */ 
+    background-color:#0076C8;
+    left: 0px; 
+  
+    
+
+}

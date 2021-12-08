@@ -7,6 +7,7 @@ import Modal_Template from "./Modal_Template.js";
 
 
 
+
 function Clients() {
     const [firestoreDB, setFirestoreDB] = useState(firebase.firestore()); 
     const [modalVisible, setModalVisible] = useState(false); 
@@ -116,7 +117,7 @@ function Clients() {
                     <input type="text" required onChange={e=>updateFormData("zip",e.target.value)}/>
                 </label> <br/> 
             </form>
-            <button onClick={() => handleSubmit()}> Submit </button> 
+            <button onClick={() => handleSubmit()}> Save </button> 
         </div> 
 
         ); 
@@ -143,7 +144,7 @@ function Clients() {
 
 
     return (
-        <div>
+        <div >
             {console.log(list[0])}
             <Modal_Template
                 modalVisible={modalVisible}
@@ -152,7 +153,7 @@ function Clients() {
                 close={()=>setModalVisible(false)}
             />            
             <h> Select the active client </h> 
-            {renderTable()}
+            <div> {renderTable()} </div> 
             <br/> 
             <button onClick={()=>setModalVisible(true)}>Add Client</button>
         </div>

@@ -8,6 +8,7 @@ import Dropdown from './Dropdown.js';
 import Dropdown_Search from './Dropdown_Search.js'; 
 import firebase from "./Firebase.js"; 
 import Modal_Add_Product from "./Modal_Add_Product.js"; 
+import "./Home.css"; 
 
 
 function Home() {
@@ -129,7 +130,7 @@ function Home() {
 
   
   return (
-    <div>
+    <div className="home">
       <br/> 
       <br/> 
       <Dropdown_Search selector="name_last" list={clientList} />

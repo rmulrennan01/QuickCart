@@ -2,8 +2,8 @@
  
     font: arial; 
     font-weight: bold;
-    color: black; 
-    background-color: lightblue;
+    color: white; 
+    background-color:#0076C8;
     transition-duration: 0.4s; /* for hover*/ 
 }
 
