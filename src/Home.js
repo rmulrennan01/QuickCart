@@ -131,8 +131,7 @@ function Home() {
   
   return (
     <div className="home">
-      <br/> 
-      <br/> 
+      
       <Dropdown_Search selector="name_last" list={clientList} />
       <Dropdown_Search selector="name_first" list={clientList}/> 
       <br/> 

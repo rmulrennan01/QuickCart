@@ -10,12 +10,17 @@ function Toolbar() {
                 <div className="toolbar">
                     <div className="toolbar__header">
                         Menu
+                        <br/> 
+                        <br/> 
                     </div>
                     <div className="toolbar__body"> 
                         Client Search
                         <br/> 
                         <br/> 
                         Bid Search
+                        <br/> 
+                        <br/> 
+                        Product Data
                         <br/> 
                         <br/> 
                         Product Data

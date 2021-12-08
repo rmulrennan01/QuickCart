@@ -1,6 +1,9 @@
 .toolbar{
    /* height: 15px; 
     width: 15%; */  
+        font: arial; 
+    font-weight: bold;
+    color: white; 
     background-color: #0076C8;
     left: 0px; 
     height: 100%; 
@@ -16,6 +19,9 @@
     background-color: #0076C8;
     left: 0px; 
     color: white; 
+    font: arial; 
+    font-weight: normal;
+    
 
     
 
